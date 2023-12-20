@@ -10,22 +10,18 @@ from itertools import product
 class LinkedinEasyApply:
     def __init__(self, driver):
         self.browser = driver
-        self.email = "tiffanydesantiago@gmail.com" # Your linkedin email
-        self.password = "iAg2DCOtS:)" # Your linkedin password
+        self.email = "" # Your linkedin email
+        self.password = "" # Your linkedin password
         self.base_search_url = "?f_CF=f_WRA&f_E=&f_TPR=r604800&f_LF=f_AL&sortBy=DD"  # Do not change this, it means: remote jobs ordered in descending order from new to old
         self.company_blacklist = [] # in case you want to blacklist some companies
         self.title_blacklist = [] # in case you want to blacklist some job titles
         self.positions = [
             "Data Analyst",
-            "Financial Analyst",
-            "Marketing Analyst",
-            "Marketing Analyst",
-            "Technical Lead",
+    
         ]
         self.locations = [
             "United States",
-            "United Kingdom",
-            "Europian Union",
+            
         ]
         self.seen_jobs = []
         self.file_name = "output-"
@@ -40,11 +36,11 @@ class LinkedinEasyApply:
             "First Name": "Tiffany",
             "Last Name": "De Santiago",
             "Phone Country Code": "United States (+1)",
-            "Mobile Phone Number": "9153052139", # Your phone number
-            "Street address": "6064 River Park Place",
+            "Mobile Phone Number": "", # Your phone number
+            "Street address": "",
             "City": "El Paso",
             "State": "Texas",
-            "Zip": "79932",
+            "Zip": "",
             "Linkedin": "https://www.linkedin.com/in/tiffany-de-santiago/",
             "Website": "https://github.com/titantiffany"
         }

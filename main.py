@@ -1,32 +1,33 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from linkedineasyapply import LinkedinEasyApply
 
 
 def init_browser():
-    browser_options = webdriver.ChromeOptions()
-    
-    browser_options.add_argument("--disable-blink-features")
-    browser_options.add_argument("--no-sandbox")
-    browser_options.add_argument("--start-maximized")
-    browser_options.add_argument("--disable-extensions")
-    browser_options.add_argument("--ignore-certificate-errors")
-    browser_options.add_argument("--disable-blink-features=AutomationControlled")
+    options = Options()
+    options.add_argument("--disable-blink-features")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--start-maximized")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--ignore-certificate-errors")
+    options.add_argument("--disable-blink-features=AutomationControlled")
 
-    driver = webdriver.Chrome(
-        service=ChromeDriverManager().install(),
-        options=browser_options
-    )
-    
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.set_window_position(0, 0)
     driver.maximize_window()
 
     return driver
 
-if __name__ == "__main__":
-    browser = init_browser()
 
+def main():
+    browser = init_browser()
     bot = LinkedinEasyApply(browser)
     bot.login()
     bot.security_check()
     bot.start_applying()
+
+
+if __name__ == "__main__":
+    main()
